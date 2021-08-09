@@ -1,39 +1,7 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 
-const EmployeeTitle = ({ employee }: any) => {
-  const { firstName, lastName } = employee;
-
-  return (
-    <li>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          border: "1px solid red",
-          width: "600px",
-          margin: "12px",
-          padding: "12px"
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-          }}
-        >
-          <img height={100} width={100} src="test" />
-
-          <h3>
-            {firstName} {lastName}
-          </h3>
-        </div>
-        <div style={{ marginLeft: "auto" }}>x</div>
-      </div>
-    </li>
-  );
-};
+import EmployeeTile ,{ Employee } from "./Components/EmployeeTile"
 
 function App() {
   const employees = [
@@ -43,12 +11,12 @@ function App() {
   ];
 
   return (
-    <div>
+    <div className="App">
       <div>
         <ul>
-          {employees.map((employee: any) => {
-            return <EmployeeTitle employee={employee} />;
-          })}
+          {employees.map((employee: Employee) => 
+             <EmployeeTile firstName={employee.firstName} lastName={employee.lastName} />
+          )}
         </ul>
       </div>
     </div>
